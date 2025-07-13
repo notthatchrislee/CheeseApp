@@ -7,7 +7,7 @@ const EditCheese = () => {
   const [name, setName] = useState('');
   const [description, setDescription] = useState('');
   const [country, setCountry] = useState('');
-  const [rating, setRating] = useState(1);
+  const [rating, setRating] = useState(0);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const [categories, setCategories] = useState([]);
@@ -24,7 +24,7 @@ const EditCheese = () => {
         setName(data.name);
         setDescription(data.description);
         setCountry(data.country || '');
-        setRating(data.rating || 1);
+        setRating(data.rating || 0);
         setSelectedCategories(data.categoryIds || []);
         setLoading(false);
       })
@@ -72,8 +72,20 @@ const EditCheese = () => {
         <input value={country} onChange={e => setCountry(e.target.value)} required className="form-control rounded" />
       </div>
       <div className="mb-3">
-        <label className="form-label">Rating (1-5):</label>
-        <input type="number" min="1" max="5" value={rating} onChange={e => setRating(e.target.value)} required className="form-control rounded" />
+        <label className="form-label">Rating:</label>
+        <div>
+          {[1,2,3,4,5].map(star => (
+            <span
+              key={star}
+              style={{ cursor: 'pointer', color: star <= rating ? '#ffc107' : '#e4e5e9', fontSize: '1.5rem' }}
+              onClick={() => setRating(star)}
+              onMouseOver={() => setRating(star)}
+              onMouseOut={() => setRating(rating)}
+            >
+              ★
+            </span>
+          ))}
+        </div>
       </div>
       <div className="mb-3">
         <label className="form-label">Categories:</label>

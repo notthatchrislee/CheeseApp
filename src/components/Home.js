@@ -40,18 +40,27 @@ const Home = () => {
       {error && <p className="text-danger">{error}</p>}
       <ul className="list-group">
         {cheeses.map(cheese => (
-          <li key={cheese.id} className="list-group-item d-flex flex-column flex-md-row justify-content-between align-items-md-center mb-2 rounded">
-            <span>
-              <strong>{cheese.name}</strong>: {cheese.description}
-              <span className="ms-2 text-secondary"> | Country: {cheese.country} | Rating: {cheese.rating}</span>
-              {cheese.categories && cheese.categories.length > 0 && (
-                <span className="ms-2 text-secondary"> | Categories: {cheese.categories.map(cat => cat.name).join(', ')}</span>
-              )}
-            </span>
-            <span className="mt-2 mt-md-0">
-              <button className="btn btn-danger btn-sm me-2 rounded" onClick={() => handleDelete(cheese.id)}>Delete</button>
-              <button className="btn btn-primary btn-sm rounded" onClick={() => window.location.href = `/edit-cheese/${cheese.id}`}>Edit</button>
-            </span>
+          <li key={cheese.id} className="list-group-item mb-4 p-4 rounded">
+            <div className="d-flex flex-column flex-md-row justify-content-between align-items-md-center">
+              <div>
+                <h3 className="mb-2" style={{fontWeight: 'bold', fontSize: '1.5rem'}}>{cheese.name}</h3>
+              </div>
+              <div className="mt-3 mt-md-0 d-flex gap-2">
+                <button className="btn btn-danger btn-sm me-2 rounded" onClick={() => handleDelete(cheese.id)}>Delete</button>
+                <button className="btn btn-primary btn-sm rounded" onClick={() => window.location.href = `/edit-cheese/${cheese.id}`}>Edit</button>
+                <button className="btn btn-secondary btn-sm rounded" type="button" data-bs-toggle="collapse" data-bs-target={`#cheese-details-${cheese.id}`}>Details</button>
+              </div>
+            </div>
+            <div className="collapse mt-2" id={`cheese-details-${cheese.id}`}>
+              <div className="card card-body">
+                <div className="mb-2 text-secondary"><span className="fw-bold">Description:</span> {cheese.description}</div>
+                <div className="mb-2"><span className="fw-bold">Country:</span> {cheese.country}</div>
+                <div className="mb-2"><span className="fw-bold">Rating:</span> {Array.from({length: cheese.rating}, (_, i) => '★').join('')}{Array.from({length: 5 - (cheese.rating || 0)}, (_, i) => '☆').join('')}</div>
+                {cheese.categories && cheese.categories.length > 0 && (
+                  <div className="mb-2 text-secondary"><span className="fw-bold">Categories:</span> {cheese.categories.map(cat => cat.name).join(', ')}</div>
+                )}
+              </div>
+            </div>
           </li>
         ))}
       </ul>

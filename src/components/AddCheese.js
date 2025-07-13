@@ -4,7 +4,7 @@ const AddCheese = () => {
   const [name, setName] = useState('');
   const [description, setDescription] = useState('');
   const [country, setCountry] = useState('');
-  const [rating, setRating] = useState(1);
+  const [rating, setRating] = useState(0);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -16,12 +16,12 @@ const AddCheese = () => {
     setName('');
     setDescription('');
     setCountry('');
-    setRating(1);
+    setRating(0);
     alert('Cheese added!');
   };
 
   return (
-    <form onSubmit={handleSubmit} className="p-4 rounded shadow bg-white mb-4">
+    <form onSubmit={handleSubmit} className="p-4 rounded bg-white mb-4">
       <h2 className="mb-3">Add Cheese</h2>
       <div className="mb-3">
         <label className="form-label">Name:</label>
@@ -36,8 +36,20 @@ const AddCheese = () => {
         <input value={country} onChange={e => setCountry(e.target.value)} required className="form-control rounded" />
       </div>
       <div className="mb-3">
-        <label className="form-label">Rating (1-5):</label>
-        <input type="number" min="1" max="5" value={rating} onChange={e => setRating(e.target.value)} required className="form-control rounded" />
+        <label className="form-label">Rating:</label>
+        <div>
+          {[1,2,3,4,5].map(star => (
+            <span
+              key={star}
+              style={{ cursor: 'pointer', color: star <= rating ? '#ffc107' : '#e4e5e9', fontSize: '1.5rem' }}
+              onClick={() => setRating(star)}
+              onMouseOver={() => setRating(star)}
+              onMouseOut={() => setRating(rating)}
+            >
+              ★
+            </span>
+          ))}
+        </div>
       </div>
       <button type="submit" className="btn btn-primary rounded">Add</button>
     </form>
