@@ -39,9 +39,9 @@ createTable();
 
 // Auto-migrate cheese table to add country and rating columns if missing
 const migrateCheeseTable = () => {
-  db.get("PRAGMA table_info(cheese)", (err, columns) => {
+  db.all("PRAGMA table_info(cheese)", (err, columns) => {
     if (err) return;
-    const colNames = Array.isArray(columns) ? columns.map(c => c.name) : [];
+    const colNames = columns.map(c => c.name);
     if (!colNames.includes('country')) {
       db.run('ALTER TABLE cheese ADD COLUMN country TEXT');
     }
