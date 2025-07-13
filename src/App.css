@@ -1,3 +1,10 @@
+body {
+
+  font-family: 'Quicksand', 'Comic Sans MS', 'Comic Sans', cursive;
+  color: #d18b00;
+  min-height: 100vh;
+}
+
 .App {
   text-align: center;
 }
@@ -7,6 +14,10 @@
   pointer-events: none;
 }
 
+h1, h2, h3, h4, h5, h6 {
+  color: #d18b00;
+}
+
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
     animation: App-logo-spin infinite 20s linear;
@@ -14,18 +25,84 @@
 }
 
 .App-header {
-  background-color: #282c34;
+  background: linear-gradient(90deg, #ffb347 70%, #ffe066 100%);
+  color: #d18b00;
+  font-family: 'Quicksand', 'Comic Sans MS', 'Comic Sans', cursive;
+  border-bottom: 4px solid #ffb347;
+  box-shadow: 0 2px 12px #ffe06655;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   font-size: calc(10px + 2vmin);
-  color: white;
+}
+
+.cheese-title, h1, h2 {
+  font-family: 'Quicksand', 'Comic Sans MS', 'Comic Sans', cursive;
+  color: #ffb347;
+  font-weight: 700;
+  letter-spacing: 2px;
 }
 
 .App-link {
-  color: #61dafb;
+  color: #ffb347;
+  font-family: 'Quicksand', 'Comic Sans MS', 'Comic Sans', cursive;
+  font-weight: 600;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+.App-link:hover {
+  color: #d18b00;
+}
+
+.cheese-btn {
+  background: #d18b00;
+  color: #fff;
+  border-radius: 14px;
+  border: none;
+  font-family: 'Quicksand', 'Comic Sans MS', 'Comic Sans', cursive;
+  font-weight: 700;
+  box-shadow: 0 2px 8px #ffe06655;
+  transition: background 0.2s, color 0.2s;
+  padding: 10px 24px;
+}
+.cheese-btn:hover {
+  background: #ffe066;
+  color: #ffb347;
+}
+
+.cheese-card {
+  background: linear-gradient(135deg, #fffbe6 70%, #ffe066 100%);
+  border: 2px solid #ffb347;
+  border-radius: 20px;
+  box-shadow: 0 4px 16px 0 #ffe06655;
+  padding: 24px;
+  margin-bottom: 18px;
+}
+
+.cheese-category {
+  background: #fff8dc;
+  border-radius: 8px;
+  padding: 4px 12px;
+  margin-right: 6px;
+  color: #d18b00;
+  font-weight: 700;
+  font-family: 'Quicksand', 'Comic Sans MS', 'Comic Sans', cursive;
+}
+
+.cheese-star {
+  color: #ffb347;
+  font-size: 1.7rem;
+  margin-right: 2px;
+}
+
+.cheese-details {
+  background: #fff8dc;
+  border-radius: 14px;
+  padding: 14px;
+  margin-top: 10px;
+  box-shadow: 0 2px 8px #ffe06633;
 }
 
 @keyframes App-logo-spin {

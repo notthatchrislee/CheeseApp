@@ -21,7 +21,7 @@ const AddCategory = () => {
         <label className="form-label">Name:</label>
         <input value={name} onChange={e => setName(e.target.value)} required className="form-control rounded" />
       </div>
-      <button type="submit" className="btn btn-primary rounded">Add</button>
+      <button type="submit" className="btn btn-primary cheese-btn rounded">Add</button>
     </form>
   );
 };

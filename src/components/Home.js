@@ -47,7 +47,7 @@ const Home = () => {
               </div>
               <div className="mt-3 mt-md-0 d-flex gap-2">
                 <button className="btn btn-danger btn-sm me-2 rounded" onClick={() => handleDelete(cheese.id)}>Delete</button>
-                <button className="btn btn-primary btn-sm rounded" onClick={() => window.location.href = `/edit-cheese/${cheese.id}`}>Edit</button>
+                <button className="btn btn-primary cheese-btn btn-sm rounded" onClick={() => window.location.href = `/edit-cheese/${cheese.id}`}>Edit</button>
                 <button className="btn btn-secondary btn-sm rounded" type="button" data-bs-toggle="collapse" data-bs-target={`#cheese-details-${cheese.id}`}>Details</button>
               </div>
             </div>

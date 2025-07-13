@@ -51,7 +51,7 @@ const AddCheese = () => {
           ))}
         </div>
       </div>
-      <button type="submit" className="btn btn-primary rounded">Add</button>
+      <button type="submit" className="btn btn-primary cheese-btn rounded">Add</button>
     </form>
   );
 };

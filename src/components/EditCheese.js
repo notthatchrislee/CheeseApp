@@ -100,7 +100,7 @@ const EditCheese = () => {
           </div>
         )}
       </div>
-      <button type="submit" className="btn btn-primary rounded">Save</button>
+      <button type="submit" className="btn btn-primary cheese-btn rounded">Save</button>
     </form>
   );
 };
